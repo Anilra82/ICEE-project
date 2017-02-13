@@ -1,0 +1,254 @@
+<!DOCTYPE html>  
+<html lang="en"><head>  
+<meta charset="utf-8">  
+<title>JavaScript Form Validation using a sample registration form</title>  
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />  
+<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />  
+<link rel='stylesheet' href='js-form-validation.css' type='text/css' /> 
+
+
+<script type="text/javascript">   
+   
+   function formValidation()  
+    {  
+ 
+			var ufname = document.registration.userfirstname;
+			var ulname = document.registration.userlastname;
+			var uorg = document.registration.orgname;   
+			var uaddd = document.registration.address;
+			var ucity = document.registration.citystate; 
+			var ucountry = document.registration.country;  
+			var uphone = document.registration.phone;  
+			var uemail = document.registration.email;  
+ 
+						if(allLetter(ufname))  
+							{
+							if(Letter(ulname))  
+								{ 
+								if(orgname(uorg))  
+									{
+									if(alphanumeric(uaddd))  
+										{
+										if(numeric(ucity))  
+											{   
+											if(countryselect(ucountry))  
+												{  
+												if(allnumeric(uphone))  
+													{  
+													if(ValidateEmail(uemail))  
+														{										 
+												  
+														}   
+													}  
+												}   
+											}  
+										}
+									}
+								}
+							}
+						  
+						return false;					  
+			} 
+								
+				
+				function allLetter(ufname)  
+					{   
+					var letters = /^[A-Za-z]+$/;  
+					if(ufname.value.match(letters))  
+						{  
+						return true;  
+						}  
+					else  
+						{  
+						alert('User Firstname must have alphabet characters only');  
+						ufname.focus();  
+						return false;  
+						}  
+					}
+				
+				
+				function Letter(ulname)  
+					{   
+					var letters = /^[A-Za-z]+$/;  
+					if(ulname.value.match(letters))  
+						{  
+						return true;  
+						}  
+					else  
+					{  
+					alert('User Lastname must have alphabet characters only');  
+					ulname.focus();  
+					return false;  
+					}  
+				}
+				
+				
+				function orgname(uorg)
+					{
+					var letters = /^[0-9a-zA-Z]+$/;  
+					if(uorg.value.match(letters))  
+						{  
+						return true;  
+						}  
+					else  
+						{ 
+						alert("Organization name missing.");
+						uorg.focus();
+						return false;		
+						}  
+					}	
+				 
+				 
+				 			 
+				  
+				function alphanumeric(uaddd)  
+					{   
+					var letters = /^[0-9a-zA-Z]+$/;  
+					if(uaddd.value.match(letters))  
+						{  
+						return true;  
+						}  
+					else  
+						{  
+						alert('User address must have alphanumeric characters only');  
+						uaddd.focus();  
+						return false;  
+						}  
+					}
+					
+					
+				function numeric(ucity)  
+				{
+					var letters = /^[A-Za-z]+$/;  
+					if(ucity.value.match(letters))  
+						{  
+						return true;  
+						}  
+					else  
+						{  
+						alert('Enter City name');  
+						ucity.focus();  
+						return false;  
+						}				
+					}
+					
+					
+				function countryselect(ucountry)  
+				{  
+				if(ucountry.value == "Default")  
+					{  
+					alert('Select your country from the list');  
+					ucountry.focus();  
+					return false;  
+					}  
+				else  
+					{  
+					return true;  
+					}  
+				}
+				  
+			function allnumeric(uphone)  
+				{   
+				var numbers = /^(\()?(\d{3})([\)-\. ])?(\d{4})([-\. ])?(\d{7})$/;
+				if(uphone.value.match(numbers))  
+					{  
+					return true;  
+					}  
+				else  
+					{  
+					alert('phone code must have numeric characters and should haave only 13 character');  
+					uphone.focus();  
+					return false;  
+					}  
+				}
+				  
+			function ValidateEmail(uemail)  
+				{  
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+				if(uemail.value.match(mailformat))  
+					{  
+					return true;  
+					}  
+				else  
+					{  
+					alert("You have entered an invalid email address!");  
+					uemail.focus();  
+					return false;  
+					}  
+				}
+	
+	
+	</script>
+    
+    
+    </head>  
+<body onload="document.registration.userid.focus();">  
+<h1>Registration Form</h1>  
+<p>Use tab keys to move from one input field to the next.</p>  
+				<form name='registration' onSubmit="return formValidation();"action="newpage.html">
+ 				
+                <label for="title">*Title:</label><br /> 
+                
+                <input type="radio" name="title" value="title" /> Prof.
+                <input type="radio" name="title" value="title" /> Dr.
+                <input type="radio" name="title" value="title" /> Mr.
+                <input type="radio" name="title" value="title" /> Ms.  
+                <br />
+
+
+  
+<label for="userfirstname">*Firstname:</label><br />  
+<input type="text" name="userfirstname" size="70" /> <br />
+
+<label for="userlastname">*Lastname:</label><br />  
+<input type="text" name="userlastname" size="70" /> <br />
+
+<label for="orgname">*Organization :</label><br />
+<input type="text" name="orgname" size="70"/><br />
+
+
+
+<label for="address">*Address(Line1):</label><br />
+<input type="text" name="address" size="70" /><br /> 
+
+<label for="adress">Address(Line2):</label><br />
+<input type="text" name="adress" size="70" /><br />
+
+<label for="addres">Address(Line3):</label><br />
+<input type="text" name="addres" size="70" /><br />
+
+<label for="citystate">*City/State:</label><br />
+<input type="text" name="citystate" size="70" /><br />   
+
+ 
+<label for="country">*Country:</label><br /> 
+<select name="country">  
+    <option selected="" value="Default">(Please select a country)</option>  
+    <option value="AF">Australia</option>  
+    <option value="AL">Canada</option>  
+    <option value="DZ">India</option>  
+    <option value="AS">Russia</option>  
+    <option value="AD">USA</option>  
+</select><br />  
+
+
+<label for="phone">Mobile (Phone):</label><br />  
+<input type="text" name="phone"  size="70"/><br />  
+
+
+<label for="email">*Email:</label><br />  
+<input type="text" name="email" size="70" /><br />  
+
+
+<label for="dreq">Dietary Requirement:</label><br />  
+<textarea name="dreq" id="desc" rows="3" cols="53"></textarea><br /> 
+
+<label for="APN">Accompanying person's name</label><br />
+ <input type="text" name="APN" size="70" /><br />  
+ 
+ 
+<input type="submit"  value="SUBMIT & PRODEED TO THE NEXT PHASE...">
+
+</form>  
+</body>  
+</html>  

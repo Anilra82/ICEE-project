@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Registration-Form</title>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+
+<style type="text/css">
+
+
+.scroll
+	{
+	background-color:#00FFFF;
+	overflow:scroll;
+	width:80%;
+	height:720px;
+	margin-top:50px;
+	margin-bottom:50px;
+	margin-left:10%;
+	border:5px solid #999999;
+	border-radius:5px;
+	}
+
+#regtab1{
+	width:85%;
+	height:auto;
+	background-color:#CCCCCC;
+	margin-left:5%;
+	border-radius:5px;
+	margin-top:40px;
+	padding:15px;
+	}
+	
+#regtab1 b{
+	color: #0033FF;	
+	}
+	
+#regtab2{
+	 margin:20px;
+	 text-align:center;
+
+	}
+	
+</style>
+
+<script type="text/javascript">   
+   
+   function formValidation()  
+    {  
+ 
+			var ufname = document.registration.userfirstname;
+			var ulname = document.registration.userlastname;
+			var uorg = document.registration.orgname;   
+			var uaddd = document.registration.address;
+			var ucity = document.registration.citystate; 
+			var ucountry = document.registration.country;  
+			var uphone = document.registration.phone;  
+			var uemail = document.registration.email;  
+ 
+			if(allLetter(ufname))  
+				{
+				if(Letter(ulname))  
+					{ 
+					if(orgname(uorg))  
+						{
+						if(alphanumeric(uaddd))  
+							{
+							if(numeric(ucity))  
+								{   
+								if(countryselect(ucountry))  
+									{  
+									if(allnumeric(uphone))  
+										{  
+										if(ValidateEmail(uemail))  
+											{										 
+									  
+											}   
+										}  
+									}   
+								}  
+							}
+						}
+					}
+				}
+			  
+			return false;					  
+		} 
+								
+				
+	function allLetter(ufname)  
+		{   
+		var letters = /^[A-Za-z]+$/;  
+		if(ufname.value.match(letters))  
+			{  
+			return true;  
+			}  
+		else  
+			{  
+			alert('Firstname missing:');  
+			ufname.focus();  
+			return false;  
+			}  
+		}
+	
+	
+	function Letter(ulname)  
+		{   
+		var letters = /^[A-Za-z]+$/;  
+		if(ulname.value.match(letters))  
+			{  
+			return true;  
+			}  
+		else  
+		{  
+		alert('Lastname missing:');  
+		ulname.focus();  
+		return false;  
+		}  
+	}
+	
+	
+	function orgname(uorg)
+		{
+		var letters = /^[0-9a-zA-Z]+$/;  
+		if(uorg.value.match(letters))  
+			{  
+			return true;  
+			}  
+		else  
+			{ 
+			alert("Organization name missing:");
+			uorg.focus();
+			return false;		
+			}  
+		}	
+	 
+	 
+				 
+	  
+	function alphanumeric(uaddd)  
+		{   
+		var letters = /^[0-9a-zA-Z]+$/;  
+		if(uaddd.value.match(letters))  
+			{  
+			return true;  
+			}  
+		else  
+			{  
+			alert('Address missing:');  
+			uaddd.focus();  
+			return false;  
+			}  
+		}
+		
+		
+	function numeric(ucity)  
+	{
+		var letters = /^[A-Za-z]+$/;  
+		if(ucity.value.match(letters))  
+			{  
+			return true;  
+			}  
+		else  
+			{  
+			alert('City name missing:');  
+			ucity.focus();  
+			return false;  
+			}				
+		}
+		
+		
+	function countryselect(ucountry)  
+	{  
+	if(ucountry.value == "Default")  
+		{  
+		alert('Select Country');  
+		ucountry.focus();  
+		return false;  
+		}  
+	else  
+		{  
+		return true;  
+		}  
+	}
+	  
+	function allnumeric(uphone)  
+	{   
+	var numbers = /^(\()?(\d{5})([\)-\. ])?(\d{4})([-\. ])?(\d{4})$/;
+	if(uphone.value.match(numbers))  
+		{  
+		return true;  
+		}  
+	else  
+		{  
+		alert('Phone number missing/Inappropriate:');  
+		uphone.focus();  
+		return false;  
+		}  
+	}
+	  
+	function ValidateEmail(uemail)  
+	{  
+	var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;  
+	if(uemail.value.match(mailformat))  
+		{  
+		alert("It's Done !!!!");
+		return true;  
+		
+		}  
+	else  
+		{  
+		alert("Email address missing/Inappropriate.");  
+		uemail.focus();  
+		return false;  
+		}  
+	}
+</script>
+
+</head>
+<body>
+	<div id="frame">
+    <div id="frame-left">
+        <div id="logo">
+	            <img src="image/logo1.jpg" alt="image"/> 
+            </div>
+            
+            <div id="nav">                        
+                <ul>
+                    <li><a href="Welcome.html">Welcome</a></li>
+                    <li><a href="Venue.html">Venue</a></li>
+                    <li><a href="Program.html">Program</a></li>
+                    <li><a href="Event.html">Event</a></li>
+                    <li><a href="to-authors.html">to Authors</a></li>
+                    <li><a href="Registration.html">Registration</a></li>
+                    <li><a href="Travel.html">Travel</a></li>
+                    <li><a href="Organisation.html">Organization</a></li>
+                </ul>
+            </div>
+            
+            <div id="contact">
+            	 <strong>Conference Chair </strong><br />
+                 <span id="name">Dr. Olli Mertanen</span><br />
+                 <strong> Organization Committee Chair</strong><br />
+                 <span id="name">Dr. Janne Roslöf</span><br />
+                 <strong>Further information</strong><br />
+                 <span id="name">info@icee2012.fi</span><br />
+                 <strong>Website</strong><br  />
+                 <span id="name">www.icee2012.fi</span>
+            </div>
+        </div>   <!-- frame-left closing-->
+            
+            
+        <div id="frame-right">
+            <div id="pic">
+            <img src="image/pictur.jpg" alt="image" width="950" height="250"/>                    
+            </div>	
+
+        
+            <div class="scroll">
+                <div id="regtab1">
+                    <b>INTERNATIONAL CONFERENCE ON ENGINEERING EDUCATION 2012</b><br />
+                    TURKU, FINLAND<br /><br />
+                    <p><b>REGISTRATION FORM </b></p><br /><br />
+                    <p>Welcome to the registration form of the ICEE 2012 conference. The event will take place in Turku, Finland from July 30 to August 3, 2012.</p><br /><br />
+                    <p>After you have completed this form you will be directed to a payment form administered directly by iNEER. In order to ensure that all relevant details are correct both in this registration 
+                    form and in the payment database, you will be asked to fill some identification information in the iNEER form, too. We appreciate your co-operation.</p><br /><br />
+                    <p>The mandatory fields are marked with * . Please note that this form must be filled separately for each participant and accompanying person. </p>
+                </div>
+                
+            <div id="regtab1">
+                <b>PERSONAL DETAILS</b><br />
+                <p>(Use tab keys to move from one input field to the next.)</p>           
+                <br />
+                <br />
+				<form name='registration' onSubmit="return formValidation();" action="newpage.html">
+                <label for="title">*Title:</label><br /> 
+                <input type="radio" name="title" value="prof" /> Prof.
+                <input type="radio" name="title" value="dr" /> Dr.
+                <input type="radio" name="title" value="male" /> Mr.
+                <input type="radio" name="title" value="female" /> Ms.  
+                <br />
+                            
+                <label for="userfirstname">*Firstname:</label><br />  
+                <input type="text" name="userfirstname" size="70" /> <br />
+                
+                <label for="userlastname">*Lastname:</label><br />  
+                <input type="text" name="userlastname" size="70" /> <br />
+                
+                <label for="orgname">*Organization :</label><br />
+                <input type="text" name="orgname" size="70"/><br />               
+                
+                <label for="address">*Address(Line1):</label><br />
+                <input type="text" name="address" size="70" /><br /> 
+                
+                <label for="adress">Address(Line2):</label><br />
+                <input type="text" name="adress" size="70" /><br />
+                
+                <label for="addres">Address(Line3):</label><br />
+                <input type="text" name="addres" size="70" /><br />
+                
+                <label for="citystate">*City/State:</label><br />
+                <input type="text" name="citystate" size="70" /><br /> 
+                                
+                
+                
+                <label for="country">*Country:</label><br /> 
+                <select name="country">  
+                    <option value="Default">(Please select a country)</option> 
+                    <option value="93">Afghanistan (0093)	</option>
+                    <option value="355">Albania (00355)	</option>
+                    <option value="213">Algeria (00213) 	</option>
+                    <option value="376">Andorra (00376) 	</option>
+                    <option value="244">Angola (00244) 	</option>
+                    <option value="1264">Anguilla (001264) 	</option>
+                    <option value="1268">Antigua &amp; Barbuda (001268) 	</option>
+                    <option value="599">Antilles (Dutch) (00599) 	</option>
+                    <option value="54">Argentina (0054) 	</option>
+                    <option value="374">Armenia (00374) 	</option>
+                    <option value="297">Aruba (00297) 	</option>
+                    <option value="247">Ascension Island (00247) 	</option>
+                    <option value="61">Australia (0061) 	</option>
+                    <option value="43">Austria (0043) 	</option>
+                    <option value="994">Azerbaijan (00994) 	</option>
+                    <option value="1242">Bahamas (001242) 	</option>
+                    <option value="973">Bahrain (00973) 	</option>
+                    <option value="880">Bangladesh (00880) 	</option>
+                    <option value="1246">Barbados (001246) 	</option>
+                    <option value="375">Belarus (00375) 	</option>
+                    <option value="32">Belgium (0032) 	</option>
+                    <option value="501">Belize (00501) 	</option>
+                    <option value="229">Benin (00229) 	</option>
+                    <option value="1441">Bermuda (001441) 	</option>
+                    <option value="975">Bhutan (00975) 	</option>
+                    <option value="591">Bolivia (00591) 	</option>
+                    <option value="387">Bosnia Herzegovina (00387) 	</option>
+                    <option value="267">Botswana (00267) 	</option>
+                    <option value="55">Brazil (0055) 	</option>
+                    <option value="673">Brunei (00673) 	</option>
+                    <option value="359">Bulgaria (00359) 	</option>
+                    <option value="226">Burkina Faso (00226) 	</option>
+                    <option value="257">Burundi (00257) 	</option>
+                    <option value="855">Cambodia (00855) 	</option>
+                    <option value="237">Cameroon (00237) 	</option>
+                    <option value="1">Canada (001) 	</option>
+                    <option value="238">Cape Verde Islands (00238) 	</option>
+                    <option value="1345">Cayman Islands (001345) 	</option>
+                    <option value="236">Central African Republic (00236) 	</option>
+                    <option value="56">Chile (0056) 	</option>
+                    <option value="86">China (0086) 	</option>
+                    <option value="57">Colombia (0057) 	</option>
+                    <option value="269">Comoros (00269) 	</option>
+                    <option value="242">Congo (00242) 	</option>
+                    <option value="682">Cook Islands (00682) 	</option>
+                    <option value="506">Costa Rica (00506) 	</option>
+                    <option value="385">Croatia (00385) 	</option>
+                    <option value="53">Cuba (0053) 	</option>
+                    <option value="90392">Cyprus North (0090392) 	</option>
+                    <option value="357">Cyprus South (00357) 	</option>
+                    <option value="42">Czech Republic (0042) 	</option>
+                    <option value="45">Denmark (0045) 	</option>
+                    <option value="2463">Diego Garcia (002463) 	</option>
+                    <option value="253">Djibouti (00253) 	</option>
+                    <option value="1809">Dominica (001809) 	</option>
+                    <option value="1809">Dominican Republic (001809) 	</option>
+                    <option value="593">Ecuador (00593) 	</option>
+                    <option value="20">Egypt (0020) 	</option>
+                    <option value="353">Eire (00353) 	</option>
+                    <option value="503">El Salvador (00503) 	</option>
+                    <option value="240">Equatorial Guinea (00240) 	</option>
+                    <option value="291">Eritrea (00291) 	</option>
+                    <option value="372">Estonia (00372) 	</option>
+                    <option value="251">Ethiopia (00251) 	</option>
+                    <option value="500">Falkland Islands (00500) 	</option>
+                    <option value="298">Faroe Islands (00298) 	</option>
+                    <option value="679">Fiji (00679) 	</option>
+                    <option value="358">Finland (00358) 	</option>
+                    <option value="33">France (0033) 	</option>
+                    <option value="594">French Guiana (00594) 	</option>
+                    <option value="689">French Polynesia (00689) 	</option>
+                    <option value="241">Gabon (00241) 	</option>
+                    <option value="220">Gambia (00220) 	</option>
+                    <option value="995">Georgia (00995) 	</option>
+                    <option value="49">Germany (0049) 	</option>
+                    <option value="233">Ghana (00233) 	</option>
+                    <option value="350">Gibraltar (00350) 	</option>
+                    <option value="30">Greece (0030) 	</option>
+                    <option value="299">Greenland (00299) 	</option>
+                    <option value="1473">Grenada (001473) 	</option>
+                    <option value="590">Guadeloupe (00590) 	</option>
+                    <option value="671">Guam (00671) 	</option>
+                    <option value="502">Guatemala (00502) 	</option>
+                    <option value="224">Guinea (00224) 	</option>
+                    <option value="245">Guinea - Bissau (00245) 	</option>
+                    <option value="592">Guyana (00592) 	</option>
+                    <option value="509">Haiti (00509) 	</option>
+                    <option value="504">Honduras (00504) 	</option>
+                    <option value="852">Hong Kong (00852) 	</option>
+                    <option value="36">Hungary (0036) 	</option>
+                    <option value="354">Iceland (00354) 	</option>
+                    <option value="91">India (0091) 	</option>
+                    <option value="62">Indonesia (0062) 	</option>
+                    <option value="98">Iran (0098) 	</option>
+                    <option value="964">Iraq (00964) 	</option>
+                    <option value="972">Israel (00972) 	</option>
+                    <option value="39">Italy (0039) 	</option>
+                    <option value="225">Ivory Coast (00225) 	</option>
+                    <option value="1876">Jamaica (001876) 	</option>
+                    <option value="81">Japan (0081) 	</option>
+                    <option value="962">Jordan (00962) 	</option>
+                    <option value="7">Kazakhstan (007) 	</option>
+                    <option value="254">Kenya (00254) 	</option>
+                    <option value="686">Kiribati (00686) 	</option>
+                    <option value="850">Korea North (00850) 	</option>
+                    <option value="82">Korea South (0082) 	</option>
+                    <option value="965">Kuwait (00965) 	</option>
+                    <option value="996">Kyrgyzstan (00996) 	</option>
+                    <option value="856">Laos (00856) 	</option>
+                    <option value="371">Latvia (00371) 	</option>
+                    <option value="961">Lebanon (00961) 	</option>
+                    <option value="266">Lesotho (00266) 	</option>
+                    <option value="231">Liberia (00231) 	</option>
+                    <option value="218">Libya (00218) 	</option>
+                    <option value="417">Liechtenstein (00417) 	</option>
+                    <option value="370">Lithuania (00370) 	</option>
+                    <option value="352">Luxembourg (00352) 	</option>
+                    <option value="853">Macao (00853) 	</option>
+                    <option value="389">Macedonia (00389) 	</option>
+                    <option value="261">Madagascar (00261) 	</option>
+                    <option value="265">Malawi (00265) 	</option>
+                    <option value="60">Malaysia (0060) 	</option>
+                    <option value="960">Maldives (00960) 	</option>
+                    <option value="223">Mali (00223) 	</option>
+                    <option value="356">Malta (00356) 	</option>
+                    <option value="692">Marshall Islands (00692) 	</option>
+                    <option value="596">Martinique (00596) 	</option>
+                    <option value="222">Mauritania (00222) 	</option>
+                    <option value="269">Mayotte (00269) 	</option>
+                    <option value="52">Mexico (0052) 	</option>
+                    <option value="691">Micronesia (00691) 	</option>
+                    <option value="373">Moldova (00373) 	</option>
+                    <option value="377">Monaco (00377) 	</option>
+                    <option value="976">Mongolia (00976) 	</option>
+                    <option value="1664">Montserrat (001664) 	</option>
+                    <option value="212">Morocco (00212) 	</option>
+                    <option value="258">Mozambique (00258) 	</option>
+                    <option value="95">Myanmar (0095) 	</option>
+                    <option value="264">Namibia (00264) 	</option>
+                    <option value="674">Nauru (00674) 	</option>
+                    <option value="977">Nepal (00977) 	</option>
+                    <option value="31">Netherlands (0031) 	</option>
+                    <option value="687">New Caledonia (00687) 	</option>
+                    <option value="64">New Zealand (0064) 	</option>
+                    <option value="505">Nicaragua (00505) 	</option>
+                    <option value="227">Niger (00227) 	</option>
+                    <option value="234">Nigeria (00234) 	</option>
+                    <option value="683">Niue (00683) 	</option>
+                    <option value="672">Norfolk Islands (00672) 	</option>
+                    <option value="670">Northern Marianas (00670) 	</option>
+                    <option value="47">Norway (0047) 	</option>
+                    <option value="968">Oman (00968) 	</option>
+                    <option value="680">Palau (00680) 	</option>
+                    <option value="507">Panama (00507) 	</option>
+                    <option value="675">Papua New Guinea (00675) 	</option>
+                    <option value="595">Paraguay (00595) 	</option>
+                    <option value="51">Peru (0051) 	</option>
+                    <option value="63">Philippines (0063) 	</option>
+                    <option value="48">Poland (0048) 	</option>
+                    <option value="351">Portugal (00351) 	</option>
+                    <option value="1787">Puerto Rico (001787) 	</option>
+                    <option value="974">Qatar (00974) 	</option>
+                    <option value="262">Reunion (00262) 	</option>
+                    <option value="40">Romania (0040) 	</option>
+                    <option value="7">Russia (007) 	</option>
+                    <option value="250">Rwanda (00250) 	</option>
+                    <option value="378">San Marino (00378) 	</option>
+                    <option value="239">Sao Tome &amp; Principe (00239) 	</option>
+                    <option value="966">Saudi Arabia (00966) 	</option>
+                    <option value="221">Senegal (00221) 	</option>
+                    <option value="381">Serbia (00381) 	</option>
+                    <option value="248">Seychelles (00248) 	</option>
+                    <option value="232">Sierra Leone (00232) 	</option>
+                    <option value="65">Singapore (0065) 	</option>
+                    <option value="421">Slovak Republic (00421) 	</option>
+                    <option value="386">Slovenia (00386) 	</option>
+                    <option value="677">Solomon Islands (00677) 	</option>
+                    <option value="252">Somalia (00252) 	</option>
+                    <option value="27">South Africa (0027) 	</option>
+                    <option value="34">Spain (0034) 	</option>
+                    <option value="94">Sri Lanka (0094) 	</option>
+                    <option value="290">St. Helena (00290) 	</option>
+                    <option value="1869">St. Kitts (001869) 	</option>
+                    <option value="1758">St. Lucia (001758) 	</option>
+                    <option value="249">Sudan (00249) 	</option>
+                    <option value="597">Suriname (00597) 	</option>
+                    <option value="268">Swaziland (00268) 	</option>
+                    <option value="46">Sweden (0046) 	</option>
+                    <option value="41">Switzerland (0041) 	</option>
+                    <option value="963">Syria (00963) 	</option>
+                    <option value="886">Taiwan (00886) 	</option>
+                    <option value="7">Tajikstan (007) 	</option>
+                    <option value="66">Thailand (0066) 	</option>
+                    <option value="228">Togo (00228) 	</option>
+                    <option value="676">Tonga (00676) 	</option>
+                    <option value="1868">Trinidad &amp; Tobago (001868) 	</option>
+                    <option value="216">Tunisia (00216) 	</option>
+                    <option value="90">Turkey (0090) 	</option>
+                    <option value="7">Turkmenistan (007) 	</option>
+                    <option value="993">Turkmenistan (00993) 	</option>
+                    <option value="1649">Turks &amp; Caicos Islands (001649) 	</option>
+                    <option value="688">Tuvalu (00688) 	</option>
+                    <option value="256">Uganda (00256) 	</option>
+                    <option value="44">UK (0044) 	</option>
+                    <option value="380">Ukraine (00380) 	</option>
+                    <option value="971">United Arab Emirates (00971) 	</option>
+                    <option value="598">Uruguay (00598) 	</option>
+                    <option value="1">USA (001) 	</option>
+                    <option value="7">Uzbekistan (007) 	</option>
+                    <option value="678">Vanuatu (00678) 	</option>
+                    <option value="379">Vatican City (00379) 	</option>
+                    <option value="58">Venezuela (0058) 	</option>
+                    <option value="84">Vietnam (0084) 	</option>
+                    <option value="84">Virgin Islands - British (001284) 	</option>
+                    <option value="84">Virgin Islands - US (001340) 	</option>
+                    <option value="681">Wallis &amp; Futuna (00681) 	</option>
+                    <option value="969">Yemen (North) (00969) 	</option>
+                    <option value="967">Yemen (South) (00967) 	</option>
+                    <option value="381">Yugoslavia (00381) 	</option>
+                    <option value="243">Zaire (00243) 	</option>
+                    <option value="260">Zambia (00260) 	</option>
+                    <option value="263">Zimbabwe (00263)	</option>                    
+                    <option value="">Other</option>
+                    
+                </select><br /><br />  
+                
+                
+                <label for="phone">*Mobile (Phone):</label><br />  
+                <input type="text" name="phone"  value="00358-1234-5678" size="70"/><br />  
+                
+                
+                <label for="email">*Email:</label><br />  
+                <input type="text" name="email" size="70" /><br />  
+                
+                
+                <label for="dreq">Dietary Requirement:</label><br />  
+                <textarea name="dreq" id="desc" rows="3" cols="53"></textarea><br /> 
+                
+                <label for="APN">Accompanying person's name</label><br />
+                 <input type="text" name="APN" size="70" /><br /> 
+                
+                
+                
+                
+                My contact details can be included on the list of participants :<br />        
+                <select>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select><br /><br />
+                       
+            </div>     
+ 
+             <div id="regtab1">
+                <p><b>REGISTRATION TYPE </b></p><br />
+                <select>
+                    <option selected="selected">Full delegate</option>
+                        <optgroup label="Day Delegate">
+                            <option>Tuesday</option>
+                            <option>Wednesday</option>
+                            <option>Thursday</option>
+                            <option>Friday</option>
+                        </optgroup>
+                    <option>Student Delegate</option>
+                    <option>Accompanying person</option>
+                </select><br /><br />
+                 
+                 <p>Note: </p><br />
+                 <p>If you would like to attend as a day delegate on more than one day, please contact <a href="MAILTO:someone@example.com">info@icee2012.fi </a>.</p><br /><br />
+                 <p>If you select the Student Delegate type, please email proof of student status (a scanned copy of international student card, for example)
+                  to <a href="MAILTO:someone@example.com">info@icee2012.fi</a>.</p>    
+            </div>
+            
+            <div id="regtab1">
+                <p><b>CATERING AND SOCIAL EVENTS </b></p><br /><br />
+                <p><b>Catering</b></p><br /><br />
+                <p>Please confirm the days that you will attend the conference and require catering:</p>
+             
+                    <input type="checkbox" name="tuesday" value="" />Tuesday
+                    <input type="checkbox" name="lastname" value="" /> Wednesday
+                    <input type="checkbox" name="thursday" value="" />Thursday
+                    <input type="checkbox" name="friday" value="" />Friday
+                 <br /><br />
+                
+                <p><b>Social Events</b></p><br />
+                <p>Please select the relevant evening function(s) you wish to attend. Please note that these social events are included in the full delegate and accompanying person registration fees only.</p><br /><br />
+                
+                    <input type="checkbox" name="monday" />Get-together event (Monday, July 30)<br /> 
+                    <input type="checkbox" name="tuesday" />Welcome Reception (Tuesday, July 31)<br />
+                    <input type="checkbox" name="wednesday" />Gala Dinner & Awards Ceremony (Wednesday, August 1)
+                
+            </div>
+            
+            <div id="regtab1">
+                <p><b>ACCOMMODATION AND TOURS</b></p><br /><br />
+                <p>Please note that each participant shall take care of the hotel reservations by contacting the hotels directly. Additional information on the accommodation options is available on the 
+                conference website <a href="http://www.icee2012.fi/">(www.icee2012.fi)</a>. </p><br /><br />
+                    
+                <p>Optional tours and visits will be offered to conference participants during the event. Most tours will take place on the workshop day, Thursday August 2. The tours and visits are not 
+                included into the conference fee and each participant interested in these opportunities shall register and pay the preferred options using a separate registration form. Additional information 
+                on the trips and visits and a link to the registration form are available on the conference website  <a href="http://www.icee2012.fi/">(www.icee2012.fi)</a>.</p>
+            </div>          
+
+            
+
+            
+
+            
+            <div id="regtab2">    
+                <input type="submit"  value="SUBMIT & PRODEED TO THE NEXT PHASE...">
+                <button type="reset" value="Reset">Reset</button>
+            </div>
+            </form>
+                        
+         </div>  <!-- scroll closing-->             
+        <div id="frame-right-body-image">
+            <img src="image/turkuamk_logo.gif" alt="image" width="102" height="36"/>                   
+            <img src="image/tucs_logo.gif" alt="image" width="84" height="36"/>
+            <img src="image/ineer-logo_200x100.png" alt="image" width="150" height="75" id =""/>
+        </div> 
+
+              
+	</div><!-- frame-right closing-->                   
+</div><!-- frame closing-->
+
+</body>
+</html>
